@@ -218,13 +218,13 @@ class CarouselGenerator {
 		const textElement = slideContent.querySelector('.slide-text');
 		const numberElement = slideContent.querySelector('.slide-number');
 
-		titleElement.textContent = currentSlide.title || 'Your Title Here';
+		titleElement.innerHTML = this.formatTextWithLineBreaks(currentSlide.title || 'Your Title Here');
 
 		if (currentSlide.type === 'header') {
 			textElement.style.display = 'none';
 		} else {
 			textElement.style.display = 'block';
-			textElement.textContent = currentSlide.content || 'Your content here';
+			textElement.innerHTML = this.formatTextWithLineBreaks(currentSlide.content || 'Your content here');
 		}
 
 		numberElement.textContent = `${this.currentSlideIndex + 1} / ${this.slides.length}`;
@@ -328,14 +328,19 @@ class CarouselGenerator {
 		}
 	}
 
+	formatTextWithLineBreaks(text) {
+		// Convert newline characters to HTML <br> tags
+		return text.replace(/\n/g, '<br>');
+	}
+
 	createPDFSlide(slide, slideNumber) {
 		const slideDiv = document.createElement('div');
 		slideDiv.className = 'pdf-slide';
 
 		slideDiv.innerHTML = `
 			<div class="slide-content">
-				<h1 class="slide-title">${slide.title || 'Your Title Here'}</h1>
-				${slide.type === 'content' ? `<p class="slide-text">${slide.content || 'Your content here'}</p>` : ''}
+				<h1 class="slide-title">${this.formatTextWithLineBreaks(slide.title || 'Your Title Here')}</h1>
+				${slide.type === 'content' ? `<p class="slide-text">${this.formatTextWithLineBreaks(slide.content || 'Your content here')}</p>` : ''}
 				<div class="slide-number">${slideNumber} / ${this.slides.length}</div>
 			</div>
 		`;
