@@ -279,11 +279,11 @@ class CarouselGenerator {
 				document.body.appendChild(tempSlide);
 
 				try {
-					// Convert to canvas using html2canvas
+					// Convert to canvas using html2canvas with fixed resolution
 					const canvas = await html2canvas(tempSlide, {
 						width: 800,
 						height: 800,
-						scale: 2,
+						scale: 3,
 						backgroundColor: null,
 						logging: false,
 						useCORS: true,
@@ -291,7 +291,11 @@ class CarouselGenerator {
 						dpi: 300,
 						letterRendering: true,
 						foreignObjectRendering: false,
-						removeContainer: true
+						removeContainer: true,
+						windowWidth: 1920,
+						windowHeight: 1080,
+						scrollX: 0,
+						scrollY: 0
 					});
 
 					// Add page to PDF (except for first slide)
