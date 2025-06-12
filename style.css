@@ -281,7 +281,7 @@ body {
 .slide-preview {
 	width: 400px;
 	height: 400px;
-	background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+	background: url('carousel_bg.png') center/cover no-repeat;
 	border-radius: 0px;
 	display: flex;
 	align-items: center;
@@ -342,7 +342,7 @@ body {
 .pdf-slide {
 	width: 800px;
 	height: 800px;
-	background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+	background: url('carousel_bg.png') center/cover no-repeat;
 	border-radius: 0px;
 	display: flex;
 	align-items: center;
