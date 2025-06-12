@@ -370,8 +370,6 @@ body {
 	margin-bottom: 40px;
 	text-shadow: 0 4px 8px rgba(0,0,0,0.3);
 	word-wrap: break-word;
-	word-spacing: 0.2em;
-	letter-spacing: 0.02em;
 }
 
 .pdf-slide .slide-text {
@@ -381,8 +379,6 @@ body {
 	opacity: 0.95;
 	text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 	word-wrap: break-word;
-	word-spacing: 0.15em;
-	letter-spacing: 0.01em;
 }
 
 .pdf-slide .slide-number {
