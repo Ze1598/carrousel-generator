@@ -289,7 +289,9 @@ class CarouselGenerator {
 						useCORS: true,
 						allowTaint: true,
 						dpi: 300,
-						letterRendering: true
+						letterRendering: true,
+						foreignObjectRendering: false,
+						removeContainer: true
 					});
 
 					// Add page to PDF (except for first slide)
