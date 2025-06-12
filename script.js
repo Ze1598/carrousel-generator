@@ -283,9 +283,13 @@ class CarouselGenerator {
 					const canvas = await html2canvas(tempSlide, {
 						width: 800,
 						height: 800,
-						scale: 1,
+						scale: 2,
 						backgroundColor: null,
-						logging: false
+						logging: false,
+						useCORS: true,
+						allowTaint: true,
+						dpi: 300,
+						letterRendering: true
 					});
 
 					// Add page to PDF (except for first slide)
@@ -293,9 +297,9 @@ class CarouselGenerator {
 						pdf.addPage();
 					}
 
-					// Add image to PDF
-					const imgData = canvas.toDataURL('image/png');
-					pdf.addImage(imgData, 'PNG', 0, 0, 800, 800);
+					// Add image to PDF with higher quality
+					const imgData = canvas.toDataURL('image/png', 1.0);
+					pdf.addImage(imgData, 'PNG', 0, 0, 800, 800, undefined, 'FAST');
 
 				} catch (error) {
 					console.error('Error generating slide:', error);
