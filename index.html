@@ -1,16 +1,65 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>replit</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel Image Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
-
 <body>
-  Hello world
-  <script src="script.js"></script>
-</body>
+    <div class="container">
+        <header class="app-header">
+            <h1>Carousel Image Generator</h1>
+            <p>Create beautiful social media carousel slides</p>
+        </header>
 
+        <div class="main-content">
+            <!-- Slide Editor Panel -->
+            <div class="editor-panel">
+                <div class="editor-header">
+                    <h2>Slide Editor</h2>
+                    <button id="addSlideBtn" class="btn btn-primary">+ Add Slide</button>
+                </div>
+
+                <div id="slidesList" class="slides-list">
+                    <!-- Slides will be dynamically added here -->
+                </div>
+
+                <div class="export-section">
+                    <button id="exportPdfBtn" class="btn btn-export">Export as PDF</button>
+                </div>
+            </div>
+
+            <!-- Preview Panel -->
+            <div class="preview-panel">
+                <div class="preview-header">
+                    <h2>Preview</h2>
+                    <div class="slide-navigation">
+                        <button id="prevSlideBtn" class="nav-btn">‹</button>
+                        <span id="slideCounter">1 / 1</span>
+                        <button id="nextSlideBtn" class="nav-btn">›</button>
+                    </div>
+                </div>
+
+                <div class="preview-container">
+                    <div id="slidePreview" class="slide-preview">
+                        <div class="slide-content">
+                            <h1 class="slide-title">Your Title Here</h1>
+                            <p class="slide-text">Your content here</p>
+                            <div class="slide-number">1 / 1</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hidden canvas for PDF generation -->
+    <div id="hiddenCanvas" class="hidden-canvas"></div>
+
+    <script src="script.js"></script>
+</body>
 </html>
+
